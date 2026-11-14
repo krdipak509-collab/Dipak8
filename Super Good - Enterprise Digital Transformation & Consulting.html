@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Good | Engineering Digital Excellence for Tomorrow's Enterprises</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        // Pre-configured destination email for Super Good
+        const SUPER_GOOD_CONFIG = {
+            destinationEmail: "krdipak509@gmail.com",
+            formSubmitEndpoint: "https://formsubmit.co/ajax/krdipak509@gmail.com",
+            companyName: "Super Good",
+            responseSlaHours: 4
+        };
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#050D1A',
+                            900: '#0A192F',
+                            800: '#112240',
+                            700: '#1D3557',
+                        },
+                        electric: {
+                            500: '#0066FF',
+                            600: '#0052CC',
+                            400: '#3385FF',
+                        },
+                        cyan: {
+                            400: '#00D4FF',
+                            500: '#00B8D9',
+                        },
+                        slate: {
+                            50: '#F8FAFC',
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 32px rgba(0, 102, 255, 0.28)',
+                        'cyan-glow': '0 0 24px rgba(0, 212, 255, 0.25)',
+                        'card': '0 10px 30px -5px rgba(10, 25, 47, 0.06)',
+                        'card-hover': '0 22px 44px -10px rgba(0, 102, 255, 0.15)',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A192F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1D3557;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0066FF;
+        }
+
+        /* Glassmorphic Header & Surfaces */
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.86);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-dark {
+            background: rgba(17, 34, 64, 0.68);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 212, 255, 0.16);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 82% 18%, rgba(0, 102, 255, 0.24) 0%, rgba(10, 25, 47, 0) 45%),
+                        radial-gradient(circle at 12% 85%, rgba(0, 212, 255, 0.14) 0%, rgba(10, 25, 47, 0) 42%),
+                        linear-gradient(135deg, #050D1A 0%, #0A192F 55%, #0F274A 100%);
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modal & Panel Fade Transition */
+        .modal-enter {
+            animation: modalFadeIn 0.25s ease-out forwards;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.96) translateY(8px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-white antialiased selection:bg-electric-500 selection:text-white overflow-x-hidden">
+
+    <!-- ==================== 1. STICKY GLASSMORPHIC HEADER ==================== -->
+    <header id="navbar" class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Custom Geometric 'Super Good' Emblem & Logo -->
+                <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="relative w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-electric-500 to-cyan-400 p-0.5 shadow-glow group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-navy-900 rounded-[10px] flex items-center justify-center">
+                            <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 2.5L27.6913 9.25V22.75L16 29.5L4.30866 22.75V9.25L16 2.5Z" stroke="url(#sgLogoGrad)" stroke-width="2.3" stroke-linejoin="round"/>
+                                <path d="M16 8.5L22.5 12.25V19.75L16 23.5L9.5 19.75V12.25L16 8.5Z" fill="url(#sgLogoGrad)"/>
+                                <path d="M16 2.5V8.5M27.69 9.25L22.5 12.25M4.31 9.25L9.5 12.25" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="sgLogoGrad" x1="4" y1="2.5" x2="28" y2="29.5" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#00D4FF"/>
+                                        <stop offset="1" stop-color="#0066FF"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-extrabold text-xl tracking-wider text-white leading-none">
+                            SUPER <span class="text-cyan-400">GOOD</span>
+                        </span>
+                        <span class="text-[10px] font-medium tracking-[0.22em] text-slate-400 uppercase mt-1">Digital Consulting</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8" aria-label="Primary Navigation">
+                    <a href="#solutions" class="text-sm font-medium text-slate-200 hover:text-cyan-400 transition-colors">Solutions</a>
+                    <a href="#industries" class="text-sm font-medium text-slate-200 hover:text-cyan-400 transition-colors">Industries</a>
+                    <a href="#case-studies" class="text-sm font-medium text-slate-200 hover:text-cyan-400 transition-colors">Case Studies</a>
+                    <a href="#about" class="text-sm font-medium text-slate-200 hover:text-cyan-400 transition-colors">About</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-200 hover:text-cyan-400 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Primary CTA & Mobile Hamburger Toggle -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openConsultationModal()" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-electric-500 hover:bg-electric-600 rounded-xl shadow-glow transition-all duration-200 hover:-translate-y-0.5 cursor-pointer">
+                        <span>Schedule Consultation</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </button>
+
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false" class="lg:hidden p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-navy-800 focus:outline-none">
+                        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Hamburger Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-900 border-t border-white/10 px-4 pt-3 pb-6 space-y-2">
+            <a href="#solutions" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-cyan-400">Solutions</a>
+            <a href="#industries" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-cyan-400">Industries</a>
+            <a href="#case-studies" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-cyan-400">Case Studies</a>
+            <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-cyan-400">About</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-cyan-400">Contact</a>
+            <div class="pt-3 px-2">
+                <button onclick="openConsultationModal()" class="w-full py-3 px-4 bg-electric-500 hover:bg-electric-600 text-white font-semibold rounded-xl shadow-glow text-center cursor-pointer">
+                    Schedule Consultation
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION WITH INTERACTIVE PARTICLE NETWORK ==================== -->
+    <section id="home" class="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between pt-12 pb-8 hero-gradient text-white overflow-hidden">
+        <!-- Interactive HTML5 Canvas Animated Particle Network -->
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full opacity-75"></canvas>
+
+        <!-- Subtle Architectural Grid Overlay -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none"></div>
+
+        <!-- Main Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto py-12 lg:py-20 pointer-events-none">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Column: Copy & CTAs -->
+                <div class="lg:col-span-7 space-y-8 pointer-events-auto">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-cyan-400/30 backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span class="text-xs sm:text-sm font-semibold tracking-wide text-cyan-300 uppercase">Enterprise Cloud, AI & Digital Strategy</span>
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.12] tracking-tight text-white">
+                        Engineering <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-electric-400 to-white">Digital Excellence</span> for Tomorrow's Enterprises
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl font-normal">
+                        Super Good partners with forward-thinking organizations to modernize cloud infrastructure, deploy production AI systems, and build resilient, high-throughput enterprise software.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <button onclick="openConsultationModal()" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-electric-500 hover:bg-electric-600 rounded-xl shadow-glow transition-all duration-200 hover:-translate-y-0.5 cursor-pointer">
+                            <span>Schedule Consultation</span>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </button>
+                        <a href="#solutions" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-white/5 hover:bg-white/15 border border-white/30 hover:border-white rounded-xl backdrop-blur-sm transition-all duration-200">
+                            Explore Core Solutions
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6 pt-4 text-sm text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span>ISO 27001 & SOC2 Type II Certified</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span>99.9% Enterprise Uptime SLA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Architectural Telemetry Blueprint Card -->
+                <div class="lg:col-span-5 hidden md:block pointer-events-auto">
+                    <div class="relative glass-card-dark rounded-3xl p-6 sm:p-8 shadow-2xl">
+                        <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 rounded-full bg-cyan-400"></div>
+                                <span class="text-xs font-semibold uppercase tracking-widest text-slate-300">Super Good Architecture Mesh</span>
+                            </div>
+                            <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Active • 99.9% SLA</span>
+                        </div>
+
+                        <div class="py-6">
+                            <svg viewBox="0 0 400 260" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="200" cy="130" r="95" fill="url(#heroMeshGlow)" opacity="0.45"/>
+                                <path d="M95 70 L200 130 L305 70" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="4 4"/>
+                                <path d="M95 190 L200 130 L305 190" stroke="#0066FF" stroke-width="1.5" stroke-dasharray="4 4"/>
+                                <path d="M200 40 L200 220" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+                                <!-- Central Core Node -->
+                                <g transform="translate(155, 92)">
+                                    <rect x="0" y="0" width="90" height="76" rx="16" fill="#0A192F" stroke="#00D4FF" stroke-width="2"/>
+                                    <rect x="12" y="14" width="66" height="10" rx="5" fill="#0066FF"/>
+                                    <rect x="12" y="32" width="48" height="8" rx="4" fill="#3385FF" opacity="0.75"/>
+                                    <rect x="12" y="48" width="58" height="8" rx="4" fill="#00D4FF" opacity="0.85"/>
+                                </g>
+
+                                <!-- Satellite Nodes -->
+                                <g transform="translate(35, 38)">
+                                    <rect width="105" height="54" rx="12" fill="#112240" stroke="rgba(255,255,255,0.2)"/>
+                                    <circle cx="22" cy="27" r="10" fill="#0066FF" fill-opacity="0.3"/>
+                                    <circle cx="22" cy="27" r="4" fill="#00D4FF"/>
+                                    <text x="40" y="24" fill="#FFFFFF" font-size="10" font-weight="700" font-family="Inter">Multi-Cloud</text>
+                                    <text x="40" y="38" fill="#94A3B8" font-size="8.5" font-family="Inter">AWS / Azure</text>
+                                </g>
+
+                                <g transform="translate(260, 38)">
+                                    <rect width="105" height="54" rx="12" fill="#112240" stroke="rgba(255,255,255,0.2)"/>
+                                    <circle cx="22" cy="27" r="10" fill="#00D4FF" fill-opacity="0.25"/>
+                                    <circle cx="22" cy="27" r="4" fill="#00D4FF"/>
+                                    <text x="40" y="24" fill="#FFFFFF" font-size="10" font-weight="700" font-family="Inter">AI Agents</text>
+                                    <text x="40" y="38" fill="#94A3B8" font-size="8.5" font-family="Inter">Enterprise ML</text>
+                                </g>
+
+                                <g transform="translate(35, 168)">
+                                    <rect width="105" height="54" rx="12" fill="#112240" stroke="rgba(255,255,255,0.2)"/>
+                                    <circle cx="22" cy="27" r="10" fill="#0066FF" fill-opacity="0.3"/>
+                                    <circle cx="22" cy="27" r="4" fill="#38BDF8"/>
+                                    <text x="40" y="24" fill="#FFFFFF" font-size="10" font-weight="700" font-family="Inter">Zero-Trust</text>
+                                    <text x="40" y="38" fill="#94A3B8" font-size="8.5" font-family="Inter">SOC2 Shield</text>
+                                </g>
+
+                                <g transform="translate(260, 168)">
+                                    <rect width="105" height="54" rx="12" fill="#112240" stroke="rgba(255,255,255,0.2)"/>
+                                    <circle cx="22" cy="27" r="10" fill="#00D4FF" fill-opacity="0.25"/>
+                                    <circle cx="22" cy="27" r="4" fill="#00D4FF"/>
+                                    <text x="40" y="24" fill="#FFFFFF" font-size="10" font-weight="700" font-family="Inter">Data Fabric</text>
+                                    <text x="40" y="38" fill="#94A3B8" font-size="8.5" font-family="Inter">Real-Time BI</text>
+                                </g>
+
+                                <defs>
+                                    <radialGradient id="heroMeshGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 130) rotate(90) scale(95)">
+                                        <stop stop-color="#0066FF"/>
+                                        <stop offset="1" stop-color="#0A192F" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 pt-4 border-t border-white/10 text-center">
+                            <div class="bg-navy-900/75 rounded-xl p-3">
+                                <div class="text-cyan-400 font-display font-bold text-lg">-62%</div>
+                                <div class="text-[11px] text-slate-400">Cloud Waste</div>
+                            </div>
+                            <div class="bg-navy-900/75 rounded-xl p-3">
+                                <div class="text-white font-display font-bold text-lg">3.4x</div>
+                                <div class="text-[11px] text-slate-400">Deploy Velocity</div>
+                            </div>
+                            <div class="bg-navy-900/75 rounded-xl p-3">
+                                <div class="text-cyan-400 font-display font-bold text-lg">100%</div>
+                                <div class="text-[11px] text-slate-400">Audit Compliant</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner Trust Bar -->
+        <div class="relative z-10 border-t border-white/10 bg-navy-950/65 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                    <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400 text-center lg:text-left shrink-0">
+                        Trusted by enterprise leaders worldwide
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center justify-items-center w-full opacity-80">
+                        <div class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L4.5 6 12 2.5 19.5 6 12 9.5zm0 3.5l-10-5v9l10 5 10-5v-9l-10 5z"/></svg>
+                            <span class="font-display font-bold tracking-wider text-sm">NEXUSCORP</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="12" cy="12" r="4"/></svg>
+                            <span class="font-display font-bold tracking-wider text-sm">VORTEX AI</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                            <span class="font-display font-bold tracking-wider text-sm">STRATOS</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                            <span class="font-display font-bold tracking-wider text-sm">AETHERMED</span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1 flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            <span class="font-display font-bold tracking-wider text-sm">KINETIC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. CORE SOLUTIONS GRID (6 INTERACTIVE CARDS) ==================== -->
+    <section id="solutions" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+                <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-electric-500/10 text-electric-500 mb-4">
+                    Core Solutions
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-[2.75rem] text-navy-900 tracking-tight leading-tight">
+                    End-to-End Capabilities Engineered for <span class="text-electric-500">Enterprise Scale</span>
+                </h2>
+                <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+                    Select any capability below to inspect deliverables, enterprise tech stacks, and architectural blueprints tailored to your roadmap.
+                </p>
+            </div>
+
+            <div id="solutions-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Populated dynamically with the 6 Core Solutions -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. ABOUT SUPER GOOD & ANIMATED METRIC COUNTERS ==================== -->
+    <section id="about" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <div class="lg:col-span-6 space-y-6 reveal">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-900/5 text-navy-900 text-xs font-bold uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-electric-500"></span>
+                        Why Super Good
+                    </div>
+
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-navy-900 leading-tight">
+                        Bridging Strategic Vision with <span class="text-electric-500">Precision Engineering</span>
+                    </h2>
+
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        At <strong class="text-navy-900 font-semibold">Super Good</strong>, we turn complex technological bottlenecks into durable competitive advantages. Our principal architects, AI engineers, and security specialists embed directly alongside your leadership to deliver measurable business outcomes.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-10 h-10 rounded-xl bg-electric-500/10 text-electric-500 flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-navy-900 text-base">Outcome-Driven Pod Execution</h4>
+                                <p class="text-sm text-slate-600 mt-1">Cross-functional agile squads operating on two-week sprint cycles with transparent velocity KPIs.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-navy-900 text-base">Zero-Trust Security by Design</h4>
+                                <p class="text-sm text-slate-600 mt-1">Automated compliance guardrails and end-to-end encryption built into every deployment pipeline.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2x2 Grid of Scroll-Triggered Animated Metric Counters -->
+                <div class="lg:col-span-6 reveal">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="metrics-container">
+                        <!-- Metric 1: 99.9% Uptime SLA -->
+                        <div class="p-8 rounded-3xl bg-navy-900 text-white shadow-xl relative overflow-hidden group">
+                            <div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-electric-500/20 group-hover:scale-125 transition-transform"></div>
+                            <div class="text-cyan-400 mb-3">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+                            </div>
+                            <div class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight text-white">
+                                <span class="counter" data-target="99.9" data-decimals="1">0.0</span>%
+                            </div>
+                            <div class="mt-2 font-semibold text-base text-slate-200">Uptime SLA</div>
+                            <p class="mt-1 text-xs text-slate-400">Multi-region cloud fault tolerance</p>
+                        </div>
+
+                        <!-- Metric 2: 250+ Enterprise Projects -->
+                        <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-card hover:shadow-card-hover transition-shadow">
+                            <div class="text-electric-500 mb-3">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight text-navy-900">
+                                <span class="counter" data-target="250" data-decimals="0">0</span>+
+                            </div>
+                            <div class="mt-2 font-semibold text-base text-navy-900">Enterprise Projects</div>
+                            <p class="mt-1 text-xs text-slate-500">Delivered across global markets</p>
+                        </div>
+
+                        <!-- Metric 3: 40+ Global Tech Experts -->
+                        <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-card hover:shadow-card-hover transition-shadow">
+                            <div class="text-electric-500 mb-3">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                            </div>
+                            <div class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight text-navy-900">
+                                <span class="counter" data-target="40" data-decimals="0">0</span>+
+                            </div>
+                            <div class="mt-2 font-semibold text-base text-navy-900">Global Tech Experts</div>
+                            <p class="mt-1 text-xs text-slate-500">Certified cloud, AI & data architects</p>
+                        </div>
+
+                        <!-- Metric 4: 98% Client Retention -->
+                        <div class="p-8 rounded-3xl bg-gradient-to-br from-electric-500 to-electric-600 text-white shadow-glow relative overflow-hidden">
+                            <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10"></div>
+                            <div class="text-cyan-300 mb-3">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </div>
+                            <div class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight text-white">
+                                <span class="counter" data-target="98" data-decimals="0">0</span>%
+                            </div>
+                            <div class="mt-2 font-semibold text-base text-white">Client Retention</div>
+                            <p class="mt-1 text-xs text-blue-100">Long-term strategic partnerships</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. TABBED INDUSTRY INSIGHTS SECTION ==================== -->
+    <section id="industries" class="py-24 bg-navy-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-electric-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+                <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 mb-4">
+                    Industry Insights
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-[2.75rem] text-white tracking-tight">
+                    Vertical Intelligence & Domain Mastery
+                </h2>
+                <p class="mt-4 text-lg text-slate-300">
+                    Explore tailored architectural solutions and verified business impact across regulated, high-scale industries.
+                </p>
+            </div>
+
+            <!-- Interactive Industry Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 reveal" role="tablist" aria-label="Industry Insights">
+                <button onclick="switchIndustryTab('fintech')" id="tab-fintech" role="tab" aria-selected="true"
+                    class="industry-tab px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-electric-500 text-white shadow-glow cursor-pointer">
+                    FinTech
+                </button>
+                <button onclick="switchIndustryTab('healthcare')" id="tab-healthcare" role="tab" aria-selected="false"
+                    class="industry-tab px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-navy-800/80 text-slate-300 hover:text-white hover:bg-navy-800 border border-white/10 cursor-pointer">
+                    Healthcare
+                </button>
+                <button onclick="switchIndustryTab('ecommerce')" id="tab-ecommerce" role="tab" aria-selected="false"
+                    class="industry-tab px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-navy-800/80 text-slate-300 hover:text-white hover:bg-navy-800 border border-white/10 cursor-pointer">
+                    E-Commerce
+                </button>
+                <button onclick="switchIndustryTab('logistics')" id="tab-logistics" role="tab" aria-selected="false"
+                    class="industry-tab px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-navy-800/80 text-slate-300 hover:text-white hover:bg-navy-800 border border-white/10 cursor-pointer">
+                    Logistics
+                </button>
+            </div>
+
+            <!-- Dynamic Tab Panel -->
+            <div id="industry-panel" class="glass-card-dark rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl transition-all duration-300">
+                <!-- Populated dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. CASE STUDIES SHOWCASE WITH 'READ BRIEF' MODAL ==================== -->
+    <section id="case-studies" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+                <div class="max-w-2xl">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-electric-500/10 text-electric-500 mb-4">
+                        Proven Impact
+                    </span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-navy-900 tracking-tight">
+                        Enterprise Case Studies
+                    </h2>
+                    <p class="mt-3 text-lg text-slate-600">
+                        See how Super Good re-engineers mission-critical infrastructure and accelerates digital transformation.
+                    </p>
+                </div>
+                <button onclick="openConsultationModal()" class="inline-flex items-center font-semibold text-electric-500 hover:text-electric-600 transition-colors cursor-pointer self-start md:self-auto">
+                    Request Custom Architecture Review
+                    <svg class="w-5 h-5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <article class="bg-white rounded-3xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 flex flex-col overflow-hidden reveal">
+                    <div class="h-48 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-600 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <svg class="absolute right-0 bottom-0 w-40 h-40 text-white/10" viewBox="0 0 100 100" fill="currentColor">
+                            <circle cx="80" cy="80" r="60"/>
+                        </svg>
+                        <div class="flex items-center justify-between relative z-10">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-400 text-navy-950 shadow-sm">
+                                -65% Cloud Infrastructure Spend
+                            </span>
+                            <span class="text-xs font-medium text-slate-300">FinTech</span>
+                        </div>
+                        <div class="relative z-10">
+                            <p class="text-xs uppercase tracking-wider text-cyan-300 font-semibold">Stratos Global Bank</p>
+                            <h3 class="font-display font-bold text-xl text-white mt-1">Multi-Region Kubernetes & Cloud FinOps Transformation</h3>
+                        </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Re-architected a monolithic payment clearing engine into resilient AWS EKS microservices, processing 14,000+ transactions per second with zero downtime.
+                        </p>
+                        <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                            <div class="flex gap-2">
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">AWS</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">Kubernetes</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">Terraform</span>
+                            </div>
+                            <button onclick="openCaseStudyModal(0)" class="text-sm font-semibold text-electric-500 hover:text-electric-600 inline-flex items-center cursor-pointer">
+                                Read Brief
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Case Study 2 -->
+                <article class="bg-white rounded-3xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 flex flex-col overflow-hidden reveal">
+                    <div class="h-48 bg-gradient-to-br from-navy-950 via-navy-900 to-cyan-600 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <svg class="absolute right-0 bottom-0 w-40 h-40 text-white/10" viewBox="0 0 100 100" fill="currentColor">
+                            <rect x="30" y="30" width="70" height="70" rx="16"/>
+                        </svg>
+                        <div class="flex items-center justify-between relative z-10">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-white text-navy-900 shadow-sm">
+                                3.4x Faster Release Cadence
+                            </span>
+                            <span class="text-xs font-medium text-slate-300">E-Commerce & AI</span>
+                        </div>
+                        <div class="relative z-10">
+                            <p class="text-xs uppercase tracking-wider text-cyan-300 font-semibold">Vortex Commerce Group</p>
+                            <h3 class="font-display font-bold text-xl text-white mt-1">AI Demand Forecasting & Automated GitOps Platform</h3>
+                        </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Deployed an enterprise ML demand-forecasting lakehouse paired with automated GitOps pipelines across 45 engineering squads, cutting stockouts by 41%.
+                        </p>
+                        <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                            <div class="flex gap-2">
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">Python</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">Snowflake</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">ArgoCD</span>
+                            </div>
+                            <button onclick="openCaseStudyModal(1)" class="text-sm font-semibold text-electric-500 hover:text-electric-600 inline-flex items-center cursor-pointer">
+                                Read Brief
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Case Study 3 -->
+                <article class="bg-white rounded-3xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 flex flex-col overflow-hidden reveal">
+                    <div class="h-48 bg-gradient-to-br from-navy-900 via-electric-600 to-navy-800 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <svg class="absolute right-0 bottom-0 w-40 h-40 text-white/10" viewBox="0 0 100 100" fill="currentColor">
+                            <polygon points="50,10 95,90 5,90"/>
+                        </svg>
+                        <div class="flex items-center justify-between relative z-10">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-400 text-navy-950 shadow-sm">
+                                Zero-Trust Security Overhaul
+                            </span>
+                            <span class="text-xs font-medium text-slate-300">Healthcare</span>
+                        </div>
+                        <div class="relative z-10">
+                            <p class="text-xs uppercase tracking-wider text-cyan-300 font-semibold">AetherMed Life Sciences</p>
+                            <h3 class="font-display font-bold text-xl text-white mt-1">HIPAA-Compliant Clinical Data Lake & Identity Mesh</h3>
+                        </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Engineered end-to-end encryption, automated compliance drift auditing, and zero-trust identity federation for 12M+ clinical patient records.
+                        </p>
+                        <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                            <div class="flex gap-2">
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">Azure</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">Zero-Trust</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">HIPAA</span>
+                            </div>
+                            <button onclick="openCaseStudyModal(2)" class="text-sm font-semibold text-electric-500 hover:text-electric-600 inline-flex items-center cursor-pointer">
+                                Read Brief
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. CONSULTATION CONTACT FORM SECTION ==================== -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy-900 rounded-[2rem] overflow-hidden shadow-2xl border border-navy-800">
+                <div class="grid lg:grid-cols-12">
+                    <!-- Left Side: Corporate HQ Info & Direct Email -->
+                    <div class="lg:col-span-5 p-8 sm:p-12 bg-gradient-to-b from-navy-900 to-navy-950 text-white flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-electric-500/15 blur-2xl pointer-events-none"></div>
+
+                        <div class="space-y-6 relative z-10">
+                            <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-cyan-400/10 text-cyan-400 border border-cyan-400/20">
+                                Start a Conversation
+                            </span>
+                            <h2 class="font-display font-extrabold text-3xl sm:text-4xl leading-tight">
+                                Ready to Architect What’s Next?
+                            </h2>
+                            <p class="text-slate-300 text-base leading-relaxed">
+                                Connect with a Super Good principal architect to discuss your cloud roadmap, AI initiatives, or custom engineering requirements.
+                            </p>
+
+                            <div class="p-4 rounded-2xl bg-white/5 border border-cyan-400/25 flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-xl bg-cyan-400/15 text-cyan-400 flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-white">Under 4-Hour Response Guarantee</div>
+                                    <div class="text-xs text-slate-400 mt-0.5">Direct consultation with a senior solutions lead—no generic sales scripts.</div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 pt-4">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-navy-800 text-cyan-400 flex items-center justify-center shrink-0">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Global Headquarters</div>
+                                        <div class="text-sm text-slate-200 mt-0.5">500 Howard Street, Suite 420<br>San Francisco, CA 94105, USA</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-navy-800 text-cyan-400 flex items-center justify-center shrink-0">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Direct Advisory Email</div>
+                                        <a href="mailto:krdipak509@gmail.com" class="text-sm text-cyan-400 hover:underline mt-0.5 block font-medium">krdipak509@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-navy-800 text-cyan-400 flex items-center justify-center shrink-0">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Enterprise Desk</div>
+                                        <div class="text-sm text-slate-200 mt-0.5">+1 (415) 890-4420</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-8 mt-8 border-t border-white/10 text-xs text-slate-400 relative z-10">
+                            Mutual NDA protected upon initial discovery request.
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Consultation Form Wired to FormSubmit.co AJAX -->
+                    <div class="lg:col-span-7 p-8 sm:p-12 bg-white">
+                        <form id="contact-form" class="space-y-6" novalidate>
+                            <div>
+                                <h3 class="font-display font-bold text-2xl text-navy-900">Schedule a Technical Consultation</h3>
+                                <p class="text-sm text-slate-500 mt-1">Fill out the details below and we’ll match you with the right domain specialist.</p>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Full Name *</label>
+                                    <input type="text" id="fullName" name="Full Name" required placeholder="Alex Morgan"
+                                        class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-navy-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                                    <p class="error-msg hidden text-xs text-red-600 mt-1.5">Please enter your full name.</p>
+                                </div>
+
+                                <div>
+                                    <label for="workEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Work Email *</label>
+                                    <input type="email" id="workEmail" name="Email" required placeholder="alex@enterprise.com"
+                                        class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-navy-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                                    <p class="error-msg hidden text-xs text-red-600 mt-1.5">Please enter a valid work email address.</p>
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="company" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Company / Organization *</label>
+                                    <input type="text" id="company" name="Company" required placeholder="Acme Global Corp"
+                                        class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-navy-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                                    <p class="error-msg hidden text-xs text-red-600 mt-1.5">Please enter your company name.</p>
+                                </div>
+
+                                <div>
+                                    <label for="serviceInterest" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Solution Interest *</label>
+                                    <select id="serviceInterest" name="Solution Interest" required
+                                        class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-navy-900 focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all">
+                                        <option value="" disabled selected>Select a solution area...</option>
+                                        <option value="Cloud Infrastructure & DevOps">Cloud Infrastructure & DevOps</option>
+                                        <option value="Enterprise AI & Automation">Enterprise AI & Automation</option>
+                                        <option value="Custom Software Engineering">Custom Software Engineering</option>
+                                        <option value="Cybersecurity & Compliance">Cybersecurity & Compliance</option>
+                                        <option value="Data Analytics & BI">Data Analytics & BI</option>
+                                        <option value="Digital Strategy & Consulting">Digital Strategy & Consulting</option>
+                                    </select>
+                                    <p class="error-msg hidden text-xs text-red-600 mt-1.5">Please select a solution area.</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="projectDetails" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Project Details & Timeline *</label>
+                                <textarea id="projectDetails" name="Project Details" rows="4" required placeholder="Briefly describe your technical objectives, current architecture, or target timeline..."
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-navy-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-electric-500 focus:bg-white transition-all resize-none"></textarea>
+                                <p class="error-msg hidden text-xs text-red-600 mt-1.5">Please share a brief overview of your project.</p>
+                            </div>
+
+                            <button type="submit" id="submit-btn" class="w-full py-4 px-6 bg-electric-500 hover:bg-electric-600 disabled:opacity-70 text-white font-semibold rounded-xl shadow-glow transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                                <span id="submit-btn-text">Submit Consultation Request</span>
+                                <svg id="submit-btn-spinner" class="hidden animate-spin w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <svg id="submit-btn-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </button>
+                        </form>
+
+                        <!-- Instant Confirmation View with Unique Reference ID (#SG-XXXXX) -->
+                        <div id="contact-confirmation" class="hidden py-12 text-center space-y-6 modal-enter">
+                            <div class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
+                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <div class="space-y-2 max-w-md mx-auto">
+                                <h3 class="font-display font-extrabold text-2xl text-navy-900">Consultation Request Dispatched!</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed" id="confirmation-summary">
+                                    Thank you! A Super Good Principal Solutions Architect has received your brief and will reach out within 4 business hours.
+                                </p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 max-w-md mx-auto text-left text-xs text-slate-600 space-y-1.5">
+                                <div><span class="font-semibold text-navy-900">Reference ID:</span> <span id="ref-id" class="font-mono font-bold text-electric-600">#SG-84920</span></div>
+                                <div><span class="font-semibold text-navy-900">Routed To:</span> <span class="text-navy-800">krdipak509@gmail.com</span></div>
+                                <div><span class="font-semibold text-navy-900">Status:</span> <span class="text-emerald-600 font-semibold">Delivered to Advisory Team</span></div>
+                            </div>
+                            <button onclick="resetContactForm()" class="px-6 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold text-navy-900 hover:bg-slate-50 transition-colors cursor-pointer">
+                                Submit Another Inquiry
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 8. MULTI-COLUMN CORPORATE FOOTER ==================== -->
+    <footer class="bg-navy-950 text-slate-300 pt-20 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                <!-- Brand & Direct Email -->
+                <div class="lg:col-span-4 space-y-5">
+                    <a href="#home" class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-electric-500 to-cyan-400 p-0.5">
+                            <div class="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
+                                <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
+                                    <path d="M16 2.5L27.6913 9.25V22.75L16 29.5L4.30866 22.75V9.25L16 2.5Z" stroke="#00D4FF" stroke-width="2.5"/>
+                                    <path d="M16 8.5L22.5 12.25V19.75L16 23.5L9.5 19.75V12.25L16 8.5Z" fill="#0066FF"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="font-display font-extrabold text-xl tracking-wider text-white">
+                            SUPER <span class="text-cyan-400">GOOD</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+                        Enterprise digital transformation, cloud infrastructure, and AI engineering partner helping ambitious organizations scale securely.
+                    </p>
+                    <div class="text-sm">
+                        <span class="text-slate-400">Direct Contact: </span>
+                        <a href="mailto:krdipak509@gmail.com" class="text-cyan-400 hover:underline font-medium">krdipak509@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-3 pt-1">
+                        <a href="#contact" aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-electric-500 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                        </a>
+                        <a href="#contact" aria-label="X / Twitter" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-electric-500 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#contact" aria-label="GitHub" class="w-9 h-9 rounded-lg bg-navy-900 hover:bg-electric-500 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Column -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Company</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#solutions" class="hover:text-cyan-400 transition-colors">Solutions</a></li>
+                        <li><a href="#industries" class="hover:text-cyan-400 transition-colors">Industries</a></li>
+                        <li><a href="#case-studies" class="hover:text-cyan-400 transition-colors">Case Studies</a></li>
+                        <li><a href="#about" class="hover:text-cyan-400 transition-colors">About Super Good</a></li>
+                        <li><a href="#contact" class="hover:text-cyan-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Core Solutions Column -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Solutions</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#solutions" onclick="openServiceModal(0)" class="hover:text-cyan-400 transition-colors">Cloud Infrastructure & DevOps</a></li>
+                        <li><a href="#solutions" onclick="openServiceModal(1)" class="hover:text-cyan-400 transition-colors">Enterprise AI & Automation</a></li>
+                        <li><a href="#solutions" onclick="openServiceModal(2)" class="hover:text-cyan-400 transition-colors">Custom Software Engineering</a></li>
+                        <li><a href="#solutions" onclick="openServiceModal(3)" class="hover:text-cyan-400 transition-colors">Cybersecurity & Compliance</a></li>
+                        <li><a href="#solutions" onclick="openServiceModal(4)" class="hover:text-cyan-400 transition-colors">Data Analytics & BI</a></li>
+                        <li><a href="#solutions" onclick="openServiceModal(5)" class="hover:text-cyan-400 transition-colors">Digital Strategy & Consulting</a></li>
+                    </ul>
+                </div>
+
+                <!-- Executive Briefing Newsletter Form -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Executive Briefing</h4>
+                    <p class="text-sm text-slate-400">
+                        Monthly architectural insights on cloud FinOps, enterprise AI governance, and zero-trust security.
+                    </p>
+                    <form id="newsletter-form" class="space-y-2.5">
+                        <div class="flex rounded-xl overflow-hidden bg-navy-900 border border-white/15 focus-within:border-cyan-400">
+                            <input type="email" id="newsletter-email" required placeholder="Enter work email"
+                                class="w-full px-3.5 py-2.5 bg-transparent text-sm text-white placeholder-slate-500 focus:outline-none">
+                            <button type="submit" id="newsletter-btn" class="px-4 py-2.5 bg-electric-500 hover:bg-electric-600 disabled:opacity-70 text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer shrink-0">
+                                Join
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 Super Good. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#contact" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                    <a href="#contact" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+                    <a href="mailto:krdipak509@gmail.com" class="hover:text-slate-300 transition-colors">krdipak509@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== INTERACTIVE DETAIL MODAL ==================== -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-navy-950/80 backdrop-blur-sm" role="dialog" aria-modal="true">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 modal-enter">
+            <div class="bg-navy-900 px-6 sm:px-8 py-6 text-white flex items-start justify-between gap-4">
+                <div>
+                    <span id="modal-badge" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-cyan-400/15 text-cyan-400 mb-2">
+                        Solution Blueprint
+                    </span>
+                    <h3 id="modal-title" class="font-display font-extrabold text-2xl text-white">Solution Title</h3>
+                </div>
+                <button onclick="closeDetailModal()" aria-label="Close modal" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6 max-h-[75vh] overflow-y-auto">
+                <p id="modal-description" class="text-slate-600 text-base leading-relaxed"></p>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-navy-900 mb-3">Key Enterprise Deliverables</h4>
+                    <ul id="modal-deliverables" class="space-y-2.5"></ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-navy-900 mb-3">Technology Stack & Standards</h4>
+                    <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-end gap-3">
+                    <button onclick="closeDetailModal()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-600 hover:bg-slate-50 cursor-pointer">
+                        Close
+                    </button>
+                    <button id="modal-cta-btn" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-electric-500 hover:bg-electric-600 text-white text-sm font-semibold shadow-glow cursor-pointer">
+                        Consult on This Solution
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-3 px-5 py-3.5 rounded-2xl bg-navy-900 text-white border border-cyan-400/30 shadow-2xl modal-enter">
+        <div class="w-7 h-7 rounded-full bg-cyan-400/20 text-cyan-400 flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <span id="toast-message" class="text-sm font-medium">Success!</span>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APPLICATION LOGIC ==================== -->
+    <script>
+        // -------------------- 1. DATA: CORE SOLUTIONS (6 CARDS) --------------------
+        const solutionsData = [
+            {
+                title: "Cloud Infrastructure & DevOps",
+                shortDesc: "Migrate, orchestrate, and optimize mission-critical workloads across AWS, Azure, and GCP with automated CI/CD and FinOps governance.",
+                fullDesc: "We help enterprises escape rigid legacy infrastructure by designing resilient, self-healing cloud-native architectures. Our DevOps and FinOps specialists automate deployments while reducing recurring cloud spend by up to 45%.",
+                icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>`,
+                deliverables: [
+                    "Multi-Region Kubernetes (EKS / AKS / GKE) Cluster Architecture",
+                    "Infrastructure-as-Code (Terraform & Pulumi) Provisioning",
+                    "GitOps CI/CD Pipelines with Zero-Downtime Canary Rollouts",
+                    "Cloud FinOps Cost Optimization & 24/7 SRE Observability"
+                ],
+                tags: ["AWS", "Microsoft Azure", "Google Cloud", "Kubernetes", "Terraform", "Docker", "ArgoCD"]
+            },
+            {
+                title: "Enterprise AI & Automation",
+                shortDesc: "Deploy private generative AI copilots, intelligent workflow automation, and predictive ML models with strict enterprise governance.",
+                fullDesc: "Move beyond AI proofs-of-concept into production ROI. Super Good builds retrieval-augmented generation (RAG) enterprise assistants, autonomous agent workflows, and predictive ML pipelines grounded in your proprietary data.",
+                icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+                deliverables: [
+                    "Private Enterprise LLM & RAG Knowledge Copilots",
+                    "Intelligent Document Processing & Workflow Automation",
+                    "Predictive Demand, Churn & Risk Scoring Models",
+                    "AI Guardrails, Role-Based Access & Audit Logging"
+                ],
+                tags: ["PyTorch", "LangChain", "Vector DBs", "OpenAI Enterprise", "Vertex AI", "Python", "Ray"]
+            },
+            {
+                title: "Custom Software Engineering",
+                shortDesc: "Architect and build high-throughput SaaS platforms, customer portals, and distributed microservices tailored to your operations.",
+                fullDesc: "Off-the-shelf software rarely fits complex enterprise workflows. Our full-stack product squads craft intuitive, API-first web and mobile applications engineered for sub-100ms responsiveness and clean maintainability.",
+                icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`,
+                deliverables: [
+                    "API-First Microservices & Event-Driven Backends",
+                    "High-Craft Enterprise Web & Mobile Applications",
+                    "Legacy Monolith Strangler-Fig Modernization",
+                    "Seamless ERP, CRM & Payment Gateway Integrations"
+                ],
+                tags: ["TypeScript", "React", "Next.js", "Node.js", "Go", "GraphQL", "PostgreSQL"]
+            },
+            {
+                title: "Cybersecurity & Compliance",
+                shortDesc: "Safeguard digital assets with zero-trust network architecture, continuous threat monitoring, and automated compliance frameworks.",
+                fullDesc: "Protect customer trust and intellectual property against evolving cyber threats. We embed automated DevSecOps controls and prepare your infrastructure for seamless SOC2 Type II, ISO 27001, HIPAA, and GDPR audits.",
+                icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+                deliverables: [
+                    "Zero-Trust Identity & Access Management (IAM / SSO)",
+                    "Automated SAST/DAST DevSecOps Pipeline Hardening",
+                    "SOC2 Type II, ISO 27001 & HIPAA Readiness Engineering",
+                    "24/7 SIEM Threat Detection & Incident Playbooks"
+                ],
+                tags: ["Zero-Trust", "Okta / Auth0", "HashiCorp Vault", "SOC2", "HIPAA", "Cloudflare", "CrowdStrike"]
+            },
+            {
+                title: "Data Analytics & BI",
+                shortDesc: "Unify siloed operational databases into real-time cloud lakehouses and executive business intelligence dashboards.",
+                fullDesc: "Empower every business unit with trustworthy, real-time telemetry. We design scalable ETL/ELT pipelines, modern data warehouses, and self-service BI reporting layers that turn raw metrics into decisive action.",
+                icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>`,
+                deliverables: [
+                    "Modern Cloud Data Lakehouse Architecture",
+                    "Real-Time Streaming Ingestion & Automated dbt Models",
+                    "Executive KPI Dashboards & Self-Service BI Portals",
+                    "Master Data Governance, Quality & Lineage Tracking"
+                ],
+                tags: ["Snowflake", "Databricks", "Apache Kafka", "dbt", "Power BI", "Looker", "BigQuery"]
+            },
+            {
+                title: "Digital Strategy & Consulting",
+                shortDesc: "Align technology investments with boardroom goals through architecture audits, M&A tech due diligence, and transformation roadmaps.",
+                fullDesc: "Before writing a single line of code, our principal consultants evaluate your architectural bottlenecks, organizational velocity, and ROI levers to chart a clear, de-risked multi-quarter transformation plan.",
+                icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>`,
+                deliverables: [
+                    "Enterprise Architecture & Technical Debt Audits",
+                    "Multi-Quarter Digital Transformation & ROI Blueprints",
+                    "M&A Technology Due Diligence & Post-Merger Integration",
+                    "Agile Engineering Operating Model & Pod Coaching"
+                ],
+                tags: ["TOGAF", "Agile / SAFe", "FinOps", "Tech Due Diligence", "Product Strategy", "KPI Governance"]
+            }
+        ];
+
+        function renderSolutions() {
+            const grid = document.getElementById('solutions-grid');
+            grid.innerHTML = solutionsData.map((item, idx) => `
+                <div class="group bg-white rounded-3xl p-8 border border-slate-200/80 shadow-card hover:shadow-card-hover hover:border-electric-500/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-electric-500/10 text-electric-500 group-hover:bg-electric-500 group-hover:text-white flex items-center justify-center transition-colors duration-300 mb-6">
+                            ${item.icon}
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-navy-900 group-hover:text-electric-500 transition-colors">
+                            ${item.title}
+                        </h3>
+                        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+                            ${item.shortDesc}
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                        <button onclick="openServiceModal(${idx})" class="inline-flex items-center text-sm font-semibold text-navy-900 group-hover:text-electric-500 transition-colors cursor-pointer">
+                            <span>Learn More</span>
+                            <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </button>
+                        <span class="text-xs font-mono text-slate-400">0${idx + 1}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // -------------------- 2. DATA: TABBED INDUSTRY INSIGHTS --------------------
+        const industriesData = {
+            fintech: {
+                badge: "FinTech & Banking",
+                title: "High-Frequency Resilience & Regulatory Precision",
+                overview: "Financial institutions face relentless pressure to modernize core banking platforms while maintaining sub-second transaction latency and airtight PCI-DSS & SOC2 compliance.",
+                challenges: [
+                    "Legacy mainframe bottlenecks slowing digital product releases",
+                    "Real-time fraud detection across millions of concurrent API calls",
+                    "Strict cross-border data residency and immutable audit trails"
+                ],
+                solutionSummary: "Event-driven multi-region Kubernetes payment cores paired with streaming ML anomaly detection.",
+                outcomes: [
+                    { metric: "99.995%", label: "Payment Core Availability" },
+                    { metric: "-58%", label: "Fraud False-Positive Rate" },
+                    { metric: "4x", label: "Faster Compliance Audits" }
+                ]
+            },
+            healthcare: {
+                badge: "Healthcare & Life Sciences",
+                title: "Interoperable Clinical Data & HIPAA-First AI",
+                overview: "We empower hospital networks, payers, and biotech innovators to unify fragmented EHR data, accelerate clinical trials, and deploy privacy-preserving AI diagnostics.",
+                challenges: [
+                    "Siloed HL7/FHIR patient records across disparate clinical systems",
+                    "Stringent HIPAA, HITECH, and GxP validation governance",
+                    "Secure telemetry integration for connected medical devices"
+                ],
+                solutionSummary: "Zero-trust clinical data meshes with automated PHI de-identification and HIPAA-compliant analytics.",
+                outcomes: [
+                    { metric: "100%", label: "HIPAA & HITRUST Alignment" },
+                    { metric: "45%", label: "Faster Clinical Data Ingestion" },
+                    { metric: "12M+", label: "Protected Patient Records" }
+                ]
+            },
+            ecommerce: {
+                badge: "E-Commerce & Retail",
+                title: "Composable Commerce & Hyper-Personalized Scale",
+                overview: "Super Good architects headless omnichannel storefronts and AI recommendation engines engineered to survive peak global traffic surges without latency spikes.",
+                challenges: [
+                    "Monolithic checkout failures during flash sales and peak holidays",
+                    "Disconnected inventory visibility across online and physical stores",
+                    "High customer acquisition costs requiring AI personalization"
+                ],
+                solutionSummary: "Edge-cached composable storefronts backed by real-time inventory sync and ML demand forecasting.",
+                outcomes: [
+                    { metric: "+32%", label: "Checkout Conversion Lift" },
+                    { metric: "<85ms", label: "Global Edge API Latency" },
+                    { metric: "-41%", label: "Inventory Stockout Reduction" }
+                ]
+            },
+            logistics: {
+                badge: "Logistics & Supply Chain",
+                title: "Predictive Supply Chains & Industrial IoT",
+                overview: "From digital twins on the warehouse floor to real-time fleet routing algorithms, we connect operational technology (OT) with cloud intelligence.",
+                challenges: [
+                    "Unplanned equipment downtime eroding operational margins",
+                    "Lack of real-time visibility across global multi-tier suppliers",
+                    "Manual warehouse dispatch and route optimization workflows"
+                ],
+                solutionSummary: "Streaming IoT telemetry pipelines with predictive maintenance models and dynamic route optimization.",
+                outcomes: [
+                    { metric: "-37%", label: "Unplanned Downtime" },
+                    { metric: "+24%", label: "Fleet Route Efficiency" },
+                    { metric: "Real-Time", label: "End-to-End SKU Telemetry" }
+                ]
+            }
+        };
+
+        function switchIndustryTab(key) {
+            document.querySelectorAll('.industry-tab').forEach(btn => {
+                btn.classList.remove('bg-electric-500', 'text-white', 'shadow-glow');
+                btn.classList.add('bg-navy-800/80', 'text-slate-300', 'border', 'border-white/10');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            const activeBtn = document.getElementById(`tab-${key}`);
+            activeBtn.classList.remove('bg-navy-800/80', 'text-slate-300', 'border', 'border-white/10');
+            activeBtn.classList.add('bg-electric-500', 'text-white', 'shadow-glow');
+            activeBtn.setAttribute('aria-selected', 'true');
+
+            const data = industriesData[key];
+            const panel = document.getElementById('industry-panel');
+            panel.innerHTML = `
+                <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center modal-enter">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/15 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+                            ${data.badge}
+                        </div>
+                        <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white leading-snug">
+                            ${data.title}
+                        </h3>
+                        <p class="text-slate-300 text-base leading-relaxed">
+                            ${data.overview}
+                        </p>
+                        <div class="pt-1">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-3">Key Challenges & Super Good Architecture</h4>
+                            <ul class="space-y-2.5">
+                                ${data.challenges.map(ch => `
+                                    <li class="flex items-start gap-3 text-sm text-slate-200">
+                                        <svg class="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span>${ch}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-navy-950/60 border border-cyan-400/20 text-sm text-cyan-200">
+                            <strong class="text-white">Solution Blueprint:</strong> ${data.solutionSummary}
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Verified Impact Metrics</div>
+                        ${data.outcomes.map(out => `
+                            <div class="p-5 rounded-2xl bg-navy-950/80 border border-white/10 flex items-center justify-between">
+                                <span class="text-sm font-medium text-slate-300">${out.label}</span>
+                                <span class="font-display font-extrabold text-2xl sm:text-3xl text-cyan-400">${out.metric}</span>
+                            </div>
+                        `).join('')}
+                        <div class="pt-3">
+                            <button onclick="openConsultationModal()" class="w-full py-3.5 px-5 rounded-xl bg-white text-navy-900 hover:bg-cyan-400 hover:text-navy-950 font-bold text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                                <span>Discuss ${data.badge} Strategy</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // -------------------- 3. CASE STUDIES DATA --------------------
+        const caseStudiesData = [
+            {
+                badge: "Case Study • -65% Cloud Infrastructure Spend",
+                title: "Stratos Global Bank: Cloud FinOps & EKS Modernization",
+                desc: "Stratos Global Bank engaged Super Good to migrate 140+ legacy payment services off on-premise hardware onto a multi-region AWS Kubernetes architecture without interrupting 24/7 settlement windows.",
+                deliverables: [
+                    "Zero-downtime blue/green database migration for 8TB transactional ledger",
+                    "Automated Karpenter node autoscaling cutting idle compute waste by 65%",
+                    "Real-time Prometheus & Grafana observability across 3 global AWS regions"
+                ],
+                tags: ["AWS EKS", "Terraform", "Kafka", "Go", "FinOps", "PCI-DSS"]
+            },
+            {
+                badge: "Case Study • 3.4x Faster Release Cadence",
+                title: "Vortex Commerce Group: AI Forecasting & GitOps",
+                desc: "To eliminate seasonal stockouts and sluggish bi-monthly software releases, Super Good engineered a unified Snowflake ML pipeline alongside automated GitOps deployment workflows.",
+                deliverables: [
+                    "SKU-level demand forecasting model trained on 4 years of omnichannel telemetry",
+                    "Standardized GitHub Actions & ArgoCD templates across 45 product squads",
+                    "Deployment lead time reduced from 14 days to under 4 hours"
+                ],
+                tags: ["Snowflake", "Python", "PyTorch", "ArgoCD", "GitHub Actions"]
+            },
+            {
+                badge: "Case Study • Zero-Trust Security Overhaul",
+                title: "AetherMed Life Sciences: HIPAA Clinical Data Mesh",
+                desc: "Super Good architected a federated, zero-trust clinical research platform enabling 1,200+ researchers to query anonymized patient cohorts under strict HIPAA and SOC2 Type II governance.",
+                deliverables: [
+                    "Attribute-based access control (ABAC) and hardware-backed encryption keys",
+                    "Automated continuous compliance drift detection using Azure Policy",
+                    "Passed external HIPAA & SOC2 Type II audits with zero findings"
+                ],
+                tags: ["Microsoft Azure", "Zero-Trust IAM", "HIPAA", "SOC2 Type II", "Databricks"]
+            }
+        ];
+
+        // -------------------- 4. MODAL & CONSULTATION ROUTING --------------------
+        function openServiceModal(index) {
+            const service = solutionsData[index];
+            document.getElementById('modal-badge').textContent = "Solution Blueprint";
+            document.getElementById('modal-title').textContent = service.title;
+            document.getElementById('modal-description').textContent = service.fullDesc;
+
+            document.getElementById('modal-deliverables').innerHTML = service.deliverables.map(d => `
+                <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                    <svg class="w-5 h-5 text-electric-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>${d}</span>
+                </li>
+            `).join('');
+
+            document.getElementById('modal-tags').innerHTML = service.tags.map(t => `
+                <span class="px-3 py-1 rounded-lg bg-slate-100 text-navy-900 text-xs font-semibold border border-slate-200">${t}</span>
+            `).join('');
+
+            const ctaBtn = document.getElementById('modal-cta-btn');
+            ctaBtn.onclick = () => {
+                closeDetailModal();
+                openConsultationModal(service.title);
+            };
+
+            const modal = document.getElementById('detail-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function openCaseStudyModal(index) {
+            const cs = caseStudiesData[index];
+            document.getElementById('modal-badge').textContent = cs.badge;
+            document.getElementById('modal-title').textContent = cs.title;
+            document.getElementById('modal-description').textContent = cs.desc;
+
+            document.getElementById('modal-deliverables').innerHTML = cs.deliverables.map(d => `
+                <li class="flex items-start gap-2.5 text-sm text-slate-700">
+                    <svg class="w-5 h-5 text-electric-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span>${d}</span>
+                </li>
+            `).join('');
+
+            document.getElementById('modal-tags').innerHTML = cs.tags.map(t => `
+                <span class="px-3 py-1 rounded-lg bg-slate-100 text-navy-900 text-xs font-semibold border border-slate-200">${t}</span>
+            `).join('');
+
+            const ctaBtn = document.getElementById('modal-cta-btn');
+            ctaBtn.onclick = () => {
+                closeDetailModal();
+                openConsultationModal();
+            };
+
+            const modal = document.getElementById('detail-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeDetailModal() {
+            const modal = document.getElementById('detail-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openConsultationModal(preselectService = "") {
+            // Ensure mobile menu closes if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('menu-icon-open').classList.remove('hidden');
+            document.getElementById('menu-icon-close').classList.add('hidden');
+            document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+
+            // Reset confirmation view if previously submitted
+            if (!document.getElementById('contact-confirmation').classList.contains('hidden')) {
+                resetContactForm();
+            }
+
+            const contactSection = document.getElementById('contact');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+
+            if (preselectService) {
+                const selectEl = document.getElementById('serviceInterest');
+                for (let i = 0; i < selectEl.options.length; i++) {
+                    if (selectEl.options[i].value === preselectService) {
+                        selectEl.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            setTimeout(() => {
+                document.getElementById('fullName').focus({ preventScroll: true });
+            }, 650);
+        }
+
+        document.getElementById('detail-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'detail-modal') closeDetailModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeDetailModal();
+        });
+
+        // -------------------- 5. MOBILE HAMBURGER MENU --------------------
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            iconOpen.classList.toggle('hidden', !isHidden);
+            iconClose.classList.toggle('hidden', isHidden);
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // -------------------- 6. CONSULTATION FORM -> FORMSUBMIT.CO AJAX --------------------
+        const contactForm = document.getElementById('contact-form');
+        const contactConfirmation = document.getElementById('contact-confirmation');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            const fields = [
+                { id: 'fullName', validate: val => val.trim().length >= 2 },
+                { id: 'workEmail', validate: val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()) },
+                { id: 'company', validate: val => val.trim().length >= 2 },
+                { id: 'serviceInterest', validate: val => val !== "" },
+                { id: 'projectDetails', validate: val => val.trim().length >= 10 }
+            ];
+
+            fields.forEach(field => {
+                const input = document.getElementById(field.id);
+                const errorMsg = input.parentElement.querySelector('.error-msg');
+                if (!field.validate(input.value)) {
+                    isValid = false;
+                    input.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+                    errorMsg.classList.remove('hidden');
+                } else {
+                    input.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+                    errorMsg.classList.add('hidden');
+                }
+            });
+
+            if (!isValid) return;
+
+            const submitBtn = document.getElementById('submit-btn');
+            const submitBtnText = document.getElementById('submit-btn-text');
+            const submitBtnSpinner = document.getElementById('submit-btn-spinner');
+            const submitBtnIcon = document.getElementById('submit-btn-icon');
+
+            submitBtn.disabled = true;
+            submitBtnText.textContent = "Dispatching Request...";
+            submitBtnSpinner.classList.remove('hidden');
+            submitBtnIcon.classList.add('hidden');
+
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('workEmail').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const service = document.getElementById('serviceInterest').value;
+            const details = document.getElementById('projectDetails').value.trim();
+            const uniqueRef = '#SG-' + Math.floor(10000 + Math.random() * 90000);
+
+            try {
+                const response = await fetch(SUPER_GOOD_CONFIG.formSubmitEndpoint, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        _subject: `[Super Good Lead ${uniqueRef}] ${service} - ${company}`,
+                        _replyto: email,
+                        _template: "table",
+                        _captcha: "false",
+                        "Reference ID": uniqueRef,
+                        "Full Name": name,
+                        "Work Email": email,
+                        "Company": company,
+                        "Solution Interest": service,
+                        "Project Details": details
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error("FormSubmit delivery failed");
+                }
+
+                document.getElementById('ref-id').textContent = uniqueRef;
+                document.getElementById('confirmation-summary').innerHTML = `
+                    Thank you, <strong class="text-navy-900">${name}</strong>! Your inquiry for <strong class="text-electric-600">${service}</strong> (${company}) has been delivered directly to our advisory desk.
+                `;
+
+                contactForm.classList.add('hidden');
+                contactConfirmation.classList.remove('hidden');
+                showToast(`Inquiry ${uniqueRef} delivered to krdipak509@gmail.com!`);
+            } catch (err) {
+                console.error("Consultation submission error:", err);
+                showToast("Network issue sending request. Please try again or email krdipak509@gmail.com.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtnText.textContent = "Submit Consultation Request";
+                submitBtnSpinner.classList.add('hidden');
+                submitBtnIcon.classList.remove('hidden');
+            }
+        });
+
+        function resetContactForm() {
+            contactForm.reset();
+            contactConfirmation.classList.add('hidden');
+            contactForm.classList.remove('hidden');
+        }
+
+        // -------------------- 7. FOOTER NEWSLETTER -> FORMSUBMIT.CO AJAX --------------------
+        document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('newsletter-email');
+            const newsletterBtn = document.getElementById('newsletter-btn');
+            const subscriberEmail = emailInput.value.trim();
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(subscriberEmail)) {
+                showToast("Please enter a valid email address.");
+                return;
+            }
+
+            newsletterBtn.disabled = true;
+            const originalLabel = newsletterBtn.textContent;
+            newsletterBtn.textContent = "...";
+
+            try {
+                const response = await fetch(SUPER_GOOD_CONFIG.formSubmitEndpoint, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        _subject: `[Super Good Executive Briefing] New Subscriber`,
+                        _replyto: subscriberEmail,
+                        _template: "table",
+                        _captcha: "false",
+                        "Subscriber Email": subscriberEmail,
+                        "Source": "Super Good Footer Newsletter"
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Newsletter subscription failed");
+                }
+
+                emailInput.value = '';
+                showToast("Subscribed! Confirmation sent to krdipak509@gmail.com.");
+            } catch (err) {
+                console.error("Newsletter error:", err);
+                showToast("Could not subscribe right now. Please try again later.");
+            } finally {
+                newsletterBtn.disabled = false;
+                newsletterBtn.textContent = originalLabel;
+            }
+        });
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 4500);
+        }
+
+        // -------------------- 8. SCROLL-TRIGGERED METRIC COUNTERS & REVEAL --------------------
+        let countersStarted = false;
+
+        function animateCounters() {
+            if (countersStarted) return;
+            countersStarted = true;
+
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const decimals = parseInt(counter.getAttribute('data-decimals'), 10);
+                const duration = 1800;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const ease = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = (target * ease).toFixed(decimals);
+                    counter.textContent = currentVal;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.textContent = target.toFixed(decimals);
+                    }
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if (entry.target.querySelector('#metrics-container') || entry.target.id === 'metrics-container') {
+                        animateCounters();
+                    }
+                }
+            });
+        }, { threshold: 0.15 });
+
+        // -------------------- 9. INTERACTIVE HERO PARTICLE NETWORK CANVAS --------------------
+        function initHeroCanvas() {
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, particles;
+            const mouse = { x: null, y: null, radius: 160 };
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            function resize() {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+                createParticles();
+            }
+
+            function createParticles() {
+                const count = Math.min(Math.floor((width * height) / 16000), 75);
+                particles = Array.from({ length: count }, () => ({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    radius: Math.random() * 2 + 1.3
+                }));
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    // Draw particle node
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(0, 212, 255, 0.75)';
+                    ctx.fill();
+
+                    // Connect nearby particles
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const dx = p.x - p2.x;
+                        const dy = p.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 145) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(0, 102, 255, ${(1 - dist / 145) * 0.48})`;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+
+                    // Interactive cursor link
+                    if (mouse.x !== null && mouse.y !== null) {
+                        const mdx = p.x - mouse.x;
+                        const mdy = p.y - mouse.y;
+                        const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
+                        if (mDist < mouse.radius) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.strokeStyle = `rgba(0, 212, 255, ${(1 - mDist / mouse.radius) * 0.65})`;
+                            ctx.lineWidth = 1.2;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(draw);
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+            draw();
+        }
+
+        // -------------------- INITIALIZE APPLICATION --------------------
+        window.addEventListener('DOMContentLoaded', () => {
+            renderSolutions();
+            switchIndustryTab('fintech');
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            initHeroCanvas();
+        });
+    </script>
+</body>
+</html>
